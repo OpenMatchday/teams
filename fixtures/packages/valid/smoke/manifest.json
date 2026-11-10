@@ -1,0 +1,9 @@
+{
+  "schema_version": "0.1.0",
+  "package_id": "smoke",
+  "version": "0.1.0",
+  "display_name": "smoke",
+  "description": "fixture",
+  "fiction": true,
+  "default_locale": "en"
+}

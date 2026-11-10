@@ -1,0 +1,21 @@
+{
+  "name": "open-matchday-teams",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Open Matchday public teams registry schemas, validation, and fictional fixtures",
+  "scripts": {
+    "check": "node scripts/check-schemas.mjs",
+    "validate": "node scripts/validate-packages.mjs",
+    "test": "node --test test/schema.test.mjs test/packages.test.mjs test/privacy.test.mjs",
+    "typecheck": "tsc --noEmit -p tsconfig.json"
+  },
+  "engines": {
+    "node": ">=22"
+  },
+  "devDependencies": {
+    "ajv": "^8.17.1",
+    "ajv-formats": "^3.0.1",
+    "typescript": "^5.9.3"
+  }
+}

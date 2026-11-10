@@ -1,0 +1,9 @@
+{
+  "schema_version": "0.1.0",
+  "package_id": "minor_with_photo",
+  "version": "0.1.0",
+  "display_name": "minor_with_photo",
+  "description": "fixture",
+  "fiction": true,
+  "default_locale": "en"
+}

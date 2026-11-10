@@ -1,0 +1,9 @@
+{
+  "schema_version": "0.1.0",
+  "package_id": "with_contact",
+  "version": "0.1.0",
+  "display_name": "with_contact",
+  "description": "fixture",
+  "fiction": true,
+  "default_locale": "en"
+}

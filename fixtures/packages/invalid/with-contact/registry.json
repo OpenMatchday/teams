@@ -1,0 +1,84 @@
+{
+  "schema_version": "0.1.0",
+  "sports": [
+    {
+      "id": "basketball",
+      "name": "Basketball"
+    }
+  ],
+  "countries": [
+    {
+      "id": "it",
+      "name": "Italy",
+      "iso3166_1_alpha2": "IT"
+    }
+  ],
+  "competitions": [
+    {
+      "id": "demo_cup",
+      "name": "Demo Cup (fictional)",
+      "sport_id": "basketball",
+      "country_id": "it"
+    }
+  ],
+  "categories": [
+    {
+      "id": "senior",
+      "name": "Senior",
+      "sport_id": "basketball",
+      "age_band": "senior"
+    }
+  ],
+  "clubs": [
+    {
+      "id": "demo_club",
+      "name": "Demo Club (fictional)",
+      "country_id": "it"
+    }
+  ],
+  "teams": [
+    {
+      "id": "demo_team",
+      "name": "Demo Team",
+      "club_id": "demo_club",
+      "sport_id": "basketball",
+      "category_id": "senior"
+    }
+  ],
+  "seasons": [
+    {
+      "id": "demo_2025",
+      "name": "2025",
+      "competition_id": "demo_cup"
+    }
+  ],
+  "squads": [
+    {
+      "id": "demo_squad",
+      "team_id": "demo_team",
+      "season_id": "demo_2025"
+    }
+  ],
+  "players": [
+    {
+      "id": "demo_adult",
+      "name": "Demo Adult",
+      "is_minor": false,
+      "email": "x@example.com"
+    },
+    {
+      "id": "demo_minor",
+      "name": "Demo Minor",
+      "is_minor": true
+    }
+  ],
+  "memberships": [
+    {
+      "id": "m1",
+      "squad_id": "demo_squad",
+      "player_id": "demo_adult",
+      "number": 1,
+      "position": "guard"
+    }
+  ]
+}

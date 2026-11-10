@@ -1,0 +1,81 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "common.json",
+  "title": "Open Matchday teams registry common types v0",
+  "description": "Shared primitives for public registry packages. No private PII fields.",
+  "$defs": {
+    "SchemaVersion": {
+      "type": "string",
+      "const": "0.1.0",
+      "description": "SemVer for this teams schema set. MAJOR bumps break package compatibility (REPOS.md)."
+    },
+    "SemVer": {
+      "type": "string",
+      "pattern": "^(0|[1-9][0-9]*)\\.(0|[1-9][0-9]*)\\.(0|[1-9][0-9]*)(?:-[0-9A-Za-z.-]+)?(?:\\+[0-9A-Za-z.-]+)?$",
+      "description": "Semantic Versioning 2.0.0 (https://semver.org/)"
+    },
+    "PackageId": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 64,
+      "pattern": "^[a-z][a-z0-9_]*$",
+      "description": "Stable registry package id (snake_case)."
+    },
+    "LocalId": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 64,
+      "pattern": "^[a-z][a-z0-9_]*$",
+      "description": "Local entity id within a package (snake_case)."
+    },
+    "StableId": {
+      "type": "string",
+      "minLength": 3,
+      "maxLength": 96,
+      "pattern": "^(sport|country|competition|category|club|team|season|squad|player|membership):[a-z][a-z0-9_]*$",
+      "description": "Canonical stable id: kind:local_id (AC-9.1)."
+    },
+    "NonEmptyString": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 512
+    },
+    "Iso3166Alpha2": {
+      "type": "string",
+      "pattern": "^[A-Z]{2}$",
+      "description": "ISO 3166-1 alpha-2 country code (https://www.iso.org/iso-3166-country-codes.html)"
+    },
+    "RelativePath": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 256,
+      "pattern": "^[A-Za-z0-9._/-]+$",
+      "description": "Package-relative path using forward slashes; no .. segments"
+    },
+    "PhotoMime": {
+      "type": "string",
+      "enum": ["image/jpeg", "image/png", "image/webp"]
+    },
+    "PublicPhoto": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["path", "mime", "attribution", "license"],
+      "properties": {
+        "path": { "$ref": "#/$defs/RelativePath" },
+        "mime": { "$ref": "#/$defs/PhotoMime" },
+        "attribution": { "$ref": "#/$defs/NonEmptyString" },
+        "license": { "$ref": "#/$defs/NonEmptyString" },
+        "focal_x": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1
+        },
+        "focal_y": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1
+        }
+      }
+    }
+  }
+}

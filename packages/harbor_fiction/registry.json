@@ -1,0 +1,184 @@
+{
+  "schema_version": "0.1.0",
+  "sports": [
+    { "id": "basketball", "name": "Basketball" },
+    { "id": "futsal", "name": "Futsal" }
+  ],
+  "countries": [
+    {
+      "id": "it",
+      "name": "Italy",
+      "iso3166_1_alpha2": "IT"
+    }
+  ],
+  "competitions": [
+    {
+      "id": "harbor_open",
+      "name": "Harbor Open (fictional)",
+      "sport_id": "basketball",
+      "country_id": "it"
+    },
+    {
+      "id": "cedar_indoor",
+      "name": "Cedar Indoor Cup (fictional)",
+      "sport_id": "futsal",
+      "country_id": "it"
+    }
+  ],
+  "categories": [
+    {
+      "id": "senior",
+      "name": "Senior",
+      "sport_id": "basketball",
+      "age_band": "senior"
+    },
+    {
+      "id": "u16",
+      "name": "Under-16",
+      "sport_id": "basketball",
+      "age_band": "youth"
+    },
+    {
+      "id": "futsal_senior",
+      "name": "Futsal Senior",
+      "sport_id": "futsal",
+      "age_band": "senior"
+    }
+  ],
+  "clubs": [
+    {
+      "id": "north_harbor_club",
+      "name": "North Harbor Athletics Club (fictional)",
+      "country_id": "it",
+      "alias": "Harbor Club"
+    },
+    {
+      "id": "cedar_ridge_club",
+      "name": "Cedar Ridge Sports Club (fictional)",
+      "country_id": "it",
+      "alias": "Cedar Club"
+    }
+  ],
+  "teams": [
+    {
+      "id": "north_harbor_foxes",
+      "name": "North Harbor Foxes",
+      "club_id": "north_harbor_club",
+      "sport_id": "basketball",
+      "category_id": "senior",
+      "alias": "Foxes"
+    },
+    {
+      "id": "north_harbor_kits",
+      "name": "North Harbor Kits",
+      "club_id": "north_harbor_club",
+      "sport_id": "basketball",
+      "category_id": "u16",
+      "alias": "Kits"
+    },
+    {
+      "id": "cedar_ridge_owls",
+      "name": "Cedar Ridge Owls",
+      "club_id": "cedar_ridge_club",
+      "sport_id": "futsal",
+      "category_id": "futsal_senior",
+      "alias": "Owls"
+    }
+  ],
+  "seasons": [
+    {
+      "id": "harbor_open_2025_26",
+      "name": "2025-26",
+      "competition_id": "harbor_open",
+      "label": "Harbor Open 2025-26 (fictional)"
+    },
+    {
+      "id": "cedar_indoor_2025_26",
+      "name": "2025-26",
+      "competition_id": "cedar_indoor",
+      "label": "Cedar Indoor 2025-26 (fictional)"
+    }
+  ],
+  "squads": [
+    {
+      "id": "foxes_2025_26",
+      "team_id": "north_harbor_foxes",
+      "season_id": "harbor_open_2025_26",
+      "name": "Foxes 2025-26"
+    },
+    {
+      "id": "kits_2025_26",
+      "team_id": "north_harbor_kits",
+      "season_id": "harbor_open_2025_26",
+      "name": "Kits 2025-26"
+    },
+    {
+      "id": "owls_2025_26",
+      "team_id": "cedar_ridge_owls",
+      "season_id": "cedar_indoor_2025_26",
+      "name": "Owls 2025-26"
+    }
+  ],
+  "players": [
+    {
+      "id": "alex_rivera",
+      "name": "Alex Rivera",
+      "alias": "A. Rivera",
+      "is_minor": false,
+      "photo": {
+        "path": "photos/alex_rivera.png",
+        "mime": "image/png",
+        "attribution": "Open Matchday generated 1x1 PNG fixture (fictional player)",
+        "license": "MIT",
+        "focal_x": 0.5,
+        "focal_y": 0.5
+      }
+    },
+    {
+      "id": "blake_nguyen",
+      "name": "Blake Nguyen",
+      "is_minor": false
+    },
+    {
+      "id": "casey_young",
+      "name": "Casey Young",
+      "alias": "C. Young",
+      "is_minor": true
+    },
+    {
+      "id": "drew_santos",
+      "name": "Drew Santos",
+      "is_minor": false
+    }
+  ],
+  "memberships": [
+    {
+      "id": "foxes_alex_rivera",
+      "squad_id": "foxes_2025_26",
+      "player_id": "alex_rivera",
+      "number": 7,
+      "position": "guard"
+    },
+    {
+      "id": "foxes_blake_nguyen",
+      "squad_id": "foxes_2025_26",
+      "player_id": "blake_nguyen",
+      "number": 12,
+      "position": "forward"
+    },
+    {
+      "id": "kits_casey_young",
+      "squad_id": "kits_2025_26",
+      "player_id": "casey_young",
+      "number": 4,
+      "position": "guard"
+    },
+    {
+      "id": "owls_drew_santos",
+      "squad_id": "owls_2025_26",
+      "player_id": "drew_santos",
+      "number": 9,
+      "position": "pivot"
+    }
+  ]
+}

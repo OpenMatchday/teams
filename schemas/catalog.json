@@ -1,0 +1,66 @@
+{
+  "schema_version": "0.1.0",
+  "dialect": "https://json-schema.org/draft/2020-12/schema",
+  "schemas": [
+    "common.json",
+    "manifest.json",
+    "registry.json"
+  ],
+  "package_file_schemas": {
+    "manifest.json": "manifest.json",
+    "registry.json": "registry.json"
+  },
+  "required_layout": [
+    "manifest.json",
+    "registry.json",
+    "docs/"
+  ],
+  "taxonomy_kinds": [
+    "sport",
+    "country",
+    "competition",
+    "category",
+    "club",
+    "team",
+    "season",
+    "squad",
+    "player",
+    "membership"
+  ],
+  "privacy_banned_keys": [
+    "date_of_birth",
+    "dob",
+    "birth_date",
+    "birthday",
+    "birthdate",
+    "email",
+    "phone",
+    "phone_number",
+    "mobile",
+    "address",
+    "street_address",
+    "postal_code",
+    "contact",
+    "contacts",
+    "guardian_email",
+    "guardian_phone",
+    "parent_email",
+    "parent_phone",
+    "national_id",
+    "ssn",
+    "consent_evidence",
+    "consent_evidence_path",
+    "consent_file"
+  ],
+  "photo_mime_allowlist": [
+    "image/jpeg",
+    "image/png",
+    "image/webp"
+  ],
+  "sources": {
+    "json_schema": "https://json-schema.org/draft/2020-12/schema",
+    "semver": "https://semver.org/",
+    "iso3166_1": "https://www.iso.org/iso-3166-country-codes.html",
+    "ac": "PROJECT_SPEC AC-9.1 AC-9.2 AC-9.3 AC-9.6 AC-9.7"
+  }
+}

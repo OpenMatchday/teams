@@ -1,0 +1,192 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "registry.json",
+  "title": "Open Matchday teams registry entity document v0",
+  "description": "Public taxonomy entities only (AC-9.1, AC-9.2). No DOB or contacts.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "sports",
+    "countries",
+    "competitions",
+    "categories",
+    "clubs",
+    "teams",
+    "seasons",
+    "squads",
+    "players",
+    "memberships"
+  ],
+  "properties": {
+    "schema_version": { "$ref": "common.json#/$defs/SchemaVersion" },
+    "sports": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/Sport" }
+    },
+    "countries": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/Country" }
+    },
+    "competitions": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/Competition" }
+    },
+    "categories": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/Category" }
+    },
+    "clubs": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/Club" }
+    },
+    "teams": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/Team" }
+    },
+    "seasons": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/Season" }
+    },
+    "squads": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/Squad" }
+    },
+    "players": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/Player" }
+    },
+    "memberships": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/Membership" }
+    }
+  },
+  "$defs": {
+    "Sport": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "name"],
+      "properties": {
+        "id": { "$ref": "common.json#/$defs/LocalId" },
+        "name": { "$ref": "common.json#/$defs/NonEmptyString" }
+      }
+    },
+    "Country": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "name", "iso3166_1_alpha2"],
+      "properties": {
+        "id": { "$ref": "common.json#/$defs/LocalId" },
+        "name": { "$ref": "common.json#/$defs/NonEmptyString" },
+        "iso3166_1_alpha2": { "$ref": "common.json#/$defs/Iso3166Alpha2" }
+      }
+    },
+    "Competition": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "name", "sport_id", "country_id"],
+      "properties": {
+        "id": { "$ref": "common.json#/$defs/LocalId" },
+        "name": { "$ref": "common.json#/$defs/NonEmptyString" },
+        "sport_id": { "$ref": "common.json#/$defs/LocalId" },
+        "country_id": { "$ref": "common.json#/$defs/LocalId" }
+      }
+    },
+    "Category": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "name", "sport_id"],
+      "properties": {
+        "id": { "$ref": "common.json#/$defs/LocalId" },
+        "name": { "$ref": "common.json#/$defs/NonEmptyString" },
+        "sport_id": { "$ref": "common.json#/$defs/LocalId" },
+        "age_band": {
+          "type": "string",
+          "enum": ["senior", "youth", "mixed", "unspecified"]
+        }
+      }
+    },
+    "Club": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "name", "country_id"],
+      "properties": {
+        "id": { "$ref": "common.json#/$defs/LocalId" },
+        "name": { "$ref": "common.json#/$defs/NonEmptyString" },
+        "country_id": { "$ref": "common.json#/$defs/LocalId" },
+        "alias": { "$ref": "common.json#/$defs/NonEmptyString" }
+      }
+    },
+    "Team": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "name", "club_id", "sport_id", "category_id"],
+      "properties": {
+        "id": { "$ref": "common.json#/$defs/LocalId" },
+        "name": { "$ref": "common.json#/$defs/NonEmptyString" },
+        "club_id": { "$ref": "common.json#/$defs/LocalId" },
+        "sport_id": { "$ref": "common.json#/$defs/LocalId" },
+        "category_id": { "$ref": "common.json#/$defs/LocalId" },
+        "alias": { "$ref": "common.json#/$defs/NonEmptyString" }
+      }
+    },
+    "Season": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "name", "competition_id"],
+      "properties": {
+        "id": { "$ref": "common.json#/$defs/LocalId" },
+        "name": { "$ref": "common.json#/$defs/NonEmptyString" },
+        "competition_id": { "$ref": "common.json#/$defs/LocalId" },
+        "label": { "$ref": "common.json#/$defs/NonEmptyString" }
+      }
+    },
+    "Squad": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "team_id", "season_id"],
+      "properties": {
+        "id": { "$ref": "common.json#/$defs/LocalId" },
+        "team_id": { "$ref": "common.json#/$defs/LocalId" },
+        "season_id": { "$ref": "common.json#/$defs/LocalId" },
+        "name": { "$ref": "common.json#/$defs/NonEmptyString" }
+      }
+    },
+    "Player": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "name", "is_minor"],
+      "properties": {
+        "id": { "$ref": "common.json#/$defs/LocalId" },
+        "name": { "$ref": "common.json#/$defs/NonEmptyString" },
+        "alias": { "$ref": "common.json#/$defs/NonEmptyString" },
+        "is_minor": {
+          "type": "boolean",
+          "description": "When true, photo must be omitted (AC-9.3 default no photo)."
+        },
+        "photo": {
+          "oneOf": [
+            { "type": "null" },
+            { "$ref": "common.json#/$defs/PublicPhoto" }
+          ]
+        }
+      }
+    },
+    "Membership": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "squad_id", "player_id"],
+      "properties": {
+        "id": { "$ref": "common.json#/$defs/LocalId" },
+        "squad_id": { "$ref": "common.json#/$defs/LocalId" },
+        "player_id": { "$ref": "common.json#/$defs/LocalId" },
+        "number": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 99
+        },
+        "position": { "$ref": "common.json#/$defs/NonEmptyString" }
+      }
+    }
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "schema_version": "0.1.0",
+  "package_id": "with_dob",
+  "version": "0.1.0",
+  "display_name": "with_dob",
+  "description": "fixture",
+  "fiction": true,
+  "default_locale": "en"
+}

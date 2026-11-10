@@ -1,0 +1,9 @@
+{
+  "schema_version": "0.1.0",
+  "package_id": "harbor_fiction",
+  "version": "0.1.0",
+  "display_name": "Harbor Fiction Registry",
+  "description": "Clearly fictional clubs and players for schema and UI fixtures only (AC-9.7). Not real organizations.",
+  "fiction": true,
+  "default_locale": "en"
+}

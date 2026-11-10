@@ -1,0 +1,31 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "manifest.json",
+  "title": "Open Matchday teams registry package manifest v0",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "package_id",
+    "version",
+    "display_name",
+    "fiction",
+    "description"
+  ],
+  "properties": {
+    "schema_version": { "$ref": "common.json#/$defs/SchemaVersion" },
+    "package_id": { "$ref": "common.json#/$defs/PackageId" },
+    "version": { "$ref": "common.json#/$defs/SemVer" },
+    "display_name": { "$ref": "common.json#/$defs/NonEmptyString" },
+    "description": { "$ref": "common.json#/$defs/NonEmptyString" },
+    "fiction": {
+      "type": "boolean",
+      "description": "true when clubs/players are fictional fixtures (AC-9.7). Shipped packages under packages/ must be true."
+    },
+    "default_locale": {
+      "type": "string",
+      "pattern": "^[a-z]{2}(-[A-Z]{2})?$",
+      "default": "en"
+    }
+  }
+}
