@@ -1,25 +1,29 @@
 {
   "schema_version": "0.1.0",
   "package_id": "harbor_fiction",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "algorithm": "sha256",
-  "content_hash": "ae58545b3f846274a65862a865227f34e2e4a3fc422930bd2313cab2d4aa2d8f",
+  "content_hash": "cab37687c32f6e1ef037991327c0855787a62a3377c89d9a54f591df41018024",
   "files": [
     {
       "path": "docs/README.md",
-      "sha256": "df419212df4f8655e2a08d21145e5e2bd717d576e53d8fad048c62c7cc005783"
+      "sha256": "76547857a1ee21015ab6f244e6b395c2b1b4ea7087e5494da516cee142ea9ada"
     },
     {
       "path": "manifest.json",
-      "sha256": "a21892bc18fe07e697114f4cdec58ea523cf31b6e9ef932d2afb37f79ddd6ef7"
+      "sha256": "7712ed01e1983168e6620ddddfaa3b26cd67530e0ed4ffa6bf20f972c1da95a5"
     },
     {
       "path": "photos/alex_rivera.png",
       "sha256": "c414cd0e204de974f73753c7e28d7638e7b3691bb8b1a2bab6b25bb7fed7ce77"
     },
     {
+      "path": "photos/blake_nguyen.png",
+      "sha256": "c414cd0e204de974f73753c7e28d7638e7b3691bb8b1a2bab6b25bb7fed7ce77"
+    },
+    {
       "path": "registry.json",
-      "sha256": "f28f7a6c8cc089e7fc2a6a5d3c02ce3d040e6b16b5b0931007a3837d933c75d1"
+      "sha256": "2d0768b096220f72e940cdffaac05a92daa4c8c8d28250953795447d64b9678d"
     }
   ]
 }

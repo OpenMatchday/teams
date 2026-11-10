@@ -137,7 +137,15 @@
     {
       "id": "blake_nguyen",
       "name": "Blake Nguyen",
-      "is_minor": false
+      "is_minor": false,
+      "photo": {
+        "path": "photos/blake_nguyen.png",
+        "mime": "image/png",
+        "attribution": "Open Matchday generated 1x1 PNG fixture (fictional player)",
+        "license": "MIT",
+        "focal_x": 0.35,
+        "focal_y": 0.4
+      }
     },
     {
       "id": "casey_young",
@@ -149,6 +157,56 @@
       "id": "drew_santos",
       "name": "Drew Santos",
       "is_minor": false
+    },
+    {
+      "id": "eden_park",
+      "name": "Eden Park",
+      "is_minor": false
+    },
+    {
+      "id": "finley_ortiz",
+      "name": "Finley Ortiz",
+      "is_minor": false
+    },
+    {
+      "id": "gray_morrison",
+      "name": "Gray Morrison",
+      "is_minor": false
+    },
+    {
+      "id": "harper_quinn",
+      "name": "Harper Quinn",
+      "is_minor": false
+    },
+    {
+      "id": "indie_vale",
+      "name": "Indie Vale",
+      "is_minor": false
+    },
+    {
+      "id": "jordan_lee",
+      "name": "Jordan Lee",
+      "is_minor": false
+    },
+    {
+      "id": "kai_moretti",
+      "name": "Kai Moretti",
+      "is_minor": false
+    },
+    {
+      "id": "logan_hayes",
+      "name": "Logan Hayes",
+      "is_minor": false
+    },
+    {
+      "id": "morgan_diaz",
+      "name": "Morgan Diaz",
+      "is_minor": false
+    },
+    {
+      "id": "remy_cole",
+      "name": "Remy Cole",
+      "is_minor": false
     }
   ],
   "memberships": [
@@ -157,14 +215,49 @@
       "squad_id": "foxes_2025_26",
       "player_id": "alex_rivera",
       "number": 7,
-      "position": "guard"
+      "position": "point_guard"
     },
     {
       "id": "foxes_blake_nguyen",
       "squad_id": "foxes_2025_26",
       "player_id": "blake_nguyen",
       "number": 12,
-      "position": "forward"
+      "position": "shooting_guard"
+    },
+    {
+      "id": "foxes_eden_park",
+      "squad_id": "foxes_2025_26",
+      "player_id": "eden_park",
+      "number": 21,
+      "position": "small_forward"
+    },
+    {
+      "id": "foxes_finley_ortiz",
+      "squad_id": "foxes_2025_26",
+      "player_id": "finley_ortiz",
+      "number": 33,
+      "position": "power_forward"
+    },
+    {
+      "id": "foxes_gray_morrison",
+      "squad_id": "foxes_2025_26",
+      "player_id": "gray_morrison",
+      "number": 15,
+      "position": "center"
+    },
+    {
+      "id": "foxes_harper_quinn",
+      "squad_id": "foxes_2025_26",
+      "player_id": "harper_quinn",
+      "number": 8,
+      "position": "point_guard"
+    },
+    {
+      "id": "foxes_indie_vale",
+      "squad_id": "foxes_2025_26",
+      "player_id": "indie_vale",
+      "number": 5,
+      "position": "center"
     },
     {
       "id": "kits_casey_young",
@@ -174,10 +267,45 @@
       "position": "guard"
     },
     {
+      "id": "owls_jordan_lee",
+      "squad_id": "owls_2025_26",
+      "player_id": "jordan_lee",
+      "number": 1,
+      "position": "goalkeeper"
+    },
+    {
+      "id": "owls_kai_moretti",
+      "squad_id": "owls_2025_26",
+      "player_id": "kai_moretti",
+      "number": 4,
+      "position": "defender"
+    },
+    {
+      "id": "owls_logan_hayes",
+      "squad_id": "owls_2025_26",
+      "player_id": "logan_hayes",
+      "number": 7,
+      "position": "left_winger"
+    },
+    {
+      "id": "owls_morgan_diaz",
+      "squad_id": "owls_2025_26",
+      "player_id": "morgan_diaz",
+      "number": 11,
+      "position": "right_winger"
+    },
+    {
       "id": "owls_drew_santos",
       "squad_id": "owls_2025_26",
       "player_id": "drew_santos",
       "number": 9,
+      "position": "pivot"
+    },
+    {
+      "id": "owls_remy_cole",
+      "squad_id": "owls_2025_26",
+      "player_id": "remy_cole",
+      "number": 14,
       "position": "pivot"
     }
   ]
