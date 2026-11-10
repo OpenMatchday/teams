@@ -6,10 +6,41 @@ import { readJson, toPosix, walkFiles } from "./package-layout.mjs"
 export const HASH_ALGORITHM = "sha256"
 export const INTEGRITY_FILE = "integrity.json"
 
+const TEXT_EXT = new Set([
+  ".json",
+  ".md",
+  ".txt",
+  ".csv",
+  ".yml",
+  ".yaml",
+  ".svg",
+  ".xml",
+  ".html",
+  ".css",
+])
+
 const sha256Hex = (buf) => createHash("sha256").update(buf).digest("hex")
 
 const isIntegrityPath = (rel) =>
   rel === INTEGRITY_FILE || rel.endsWith(`/${INTEGRITY_FILE}`)
+
+const isTextRel = (rel) => {
+  const lower = rel.toLowerCase()
+  const dot = lower.lastIndexOf(".")
+  if (dot < 0) {
+    return false
+  }
+  return TEXT_EXT.has(lower.slice(dot))
+}
+
+/** Read file bytes; normalize CRLF->LF for text so Windows/Linux hashes match. */
+export const readHashableBytes = (absPath, rel) => {
+  const raw = readFileSync(absPath)
+  if (!isTextRel(rel)) {
+    return raw
+  }
+  return Buffer.from(raw.toString("utf8").replace(/\r\n/g, "\n"), "utf8")
+}
 
 /** Package-relative paths hashed for integrity (excludes integrity.json). */
 export const listHashableRels = (packageDir) => {
@@ -27,11 +58,13 @@ export const listHashableRels = (packageDir) => {
   return rels
 }
 
-export const hashFile = (absPath) => sha256Hex(readFileSync(absPath))
+export const hashFile = (absPath, rel = absPath) =>
+  sha256Hex(readHashableBytes(absPath, rel))
 
 /**
  * Canonical content hash: SHA-256 over sorted lines `path\\0fileSha\\n`
  * (REPOS.md: teams packages use SemVer + content hash; app verifies hash).
+ * Text files are hashed after CRLF->LF normalization for cross-OS stability.
  */
 export const computePackageIntegrity = (packageDir) => {
   const root = resolve(packageDir)
@@ -39,7 +72,7 @@ export const computePackageIntegrity = (packageDir) => {
   const files = []
   const lines = []
   for (const rel of rels) {
-    const digest = hashFile(join(root, rel))
+    const digest = hashFile(join(root, rel), rel)
     files.push({ path: rel, sha256: digest })
     lines.push(`${rel}\0${digest}\n`)
   }

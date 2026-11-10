@@ -8,6 +8,7 @@ Shipped packages under `packages/` include `integrity.json` (schema `schemas/v0/
 
 - `algorithm`: `sha256` (FIPS 180-4)
 - `files[]`: per-path SHA-256 digests of every package file except `integrity.json`
+- Text files (`.json`, `.md`, …) are hashed after CRLF to LF normalization so Windows and Linux agree
 - `content_hash`: SHA-256 of the canonical UTF-8 blob formed by sorting those paths and concatenating lines `path\0fileSha\n`
 
 Regenerate after package edits:

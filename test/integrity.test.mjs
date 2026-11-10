@@ -83,6 +83,25 @@ test("shipped integrity.json verifies", () => {
   assert.equal(check.ok, true, check.errors?.join("; "))
 })
 
+test("CRLF and LF text files share the same content hash", () => {
+  const lfDir = mkdtempSync(join(tmpdir(), "om-teams-lf-"))
+  const crlfDir = mkdtempSync(join(tmpdir(), "om-teams-crlf-"))
+  try {
+    writeMinimalPackage(lfDir)
+    mkdirSync(join(crlfDir, "docs"), { recursive: true })
+    for (const name of ["manifest.json", "registry.json", "docs/README.md"]) {
+      const body = readFileSync(join(lfDir, name), "utf8").replace(/\n/g, "\r\n")
+      writeFileSync(join(crlfDir, name), body)
+    }
+    const lfHash = computePackageIntegrity(lfDir).content_hash
+    const crlfHash = computePackageIntegrity(crlfDir).content_hash
+    assert.equal(crlfHash, lfHash)
+  } finally {
+    rmSync(lfDir, { recursive: true, force: true })
+    rmSync(crlfDir, { recursive: true, force: true })
+  }
+})
+
 test("tampered file fails integrity check", () => {
   const dir = mkdtempSync(join(tmpdir(), "om-teams-integrity-"))
   try {
