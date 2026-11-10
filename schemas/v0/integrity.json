@@ -1,0 +1,47 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "integrity.json",
+  "title": "Open Matchday teams registry package integrity manifest v0",
+  "description": "Companion content-hash artifact for offline cache verification (AC-9.5; REPOS.md SemVer + content hash). Not included in the hashed file set.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "package_id",
+    "version",
+    "algorithm",
+    "content_hash",
+    "files"
+  ],
+  "properties": {
+    "schema_version": { "$ref": "common.json#/$defs/SchemaVersion" },
+    "package_id": { "$ref": "common.json#/$defs/PackageId" },
+    "version": { "$ref": "common.json#/$defs/SemVer" },
+    "algorithm": {
+      "type": "string",
+      "const": "sha256",
+      "description": "FIPS 180-4 SHA-256 (Node crypto / Dart package:crypto)"
+    },
+    "content_hash": {
+      "type": "string",
+      "pattern": "^[a-f0-9]{64}$",
+      "description": "SHA-256 hex of canonical sorted path\\0fileSha lines"
+    },
+    "files": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["path", "sha256"],
+        "properties": {
+          "path": { "$ref": "common.json#/$defs/RelativePath" },
+          "sha256": {
+            "type": "string",
+            "pattern": "^[a-f0-9]{64}$"
+          }
+        }
+      }
+    }
+  }
+}

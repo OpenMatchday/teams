@@ -7,7 +7,8 @@
   "scripts": {
     "check": "node scripts/check-schemas.mjs",
     "validate": "node scripts/validate-packages.mjs",
-    "test": "node --test test/schema.test.mjs test/packages.test.mjs test/privacy.test.mjs",
+    "integrity": "node scripts/write-integrity.mjs",
+    "test": "node --test test/schema.test.mjs test/packages.test.mjs test/privacy.test.mjs test/integrity.test.mjs",
     "typecheck": "tsc --noEmit -p tsconfig.json"
   },
   "engines": {

@@ -4,11 +4,13 @@
   "schemas": [
     "common.json",
     "manifest.json",
-    "registry.json"
+    "registry.json",
+    "integrity.json"
   ],
   "package_file_schemas": {
     "manifest.json": "manifest.json",
-    "registry.json": "registry.json"
+    "registry.json": "registry.json",
+    "integrity.json": "integrity.json"
   },
   "required_layout": [
     "manifest.json",
@@ -61,6 +63,7 @@
     "json_schema": "https://json-schema.org/draft/2020-12/schema",
     "semver": "https://semver.org/",
     "iso3166_1": "https://www.iso.org/iso-3166-country-codes.html",
-    "ac": "PROJECT_SPEC AC-9.1 AC-9.2 AC-9.3 AC-9.6 AC-9.7"
+    "ac": "PROJECT_SPEC AC-9.1 AC-9.2 AC-9.3 AC-9.4 AC-9.5 AC-9.6 AC-9.7",
+    "content_hash": "REPOS.md teams packages SemVer + content hash; FIPS 180-4 SHA-256"
   }
 }

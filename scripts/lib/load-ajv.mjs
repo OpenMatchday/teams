@@ -8,7 +8,12 @@ const root = join(dirname(fileURLToPath(import.meta.url)), "..", "..")
 export const schemasDir = join(root, "schemas", "v0")
 export const SCHEMA_VERSION = "0.1.0"
 
-export const SCHEMA_ORDER = ["common.json", "manifest.json", "registry.json"]
+export const SCHEMA_ORDER = [
+  "common.json",
+  "manifest.json",
+  "registry.json",
+  "integrity.json",
+]
 
 export const loadSchemaFiles = () => {
   const files = readdirSync(schemasDir).filter((name) => name.endsWith(".json"))

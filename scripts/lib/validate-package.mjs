@@ -2,6 +2,11 @@ import { existsSync, readFileSync } from "node:fs"
 import { join, relative, sep } from "node:path"
 import { createAjv, loadCatalog, rootDir } from "./load-ajv.mjs"
 import {
+  INTEGRITY_FILE,
+  loadIntegrityManifest,
+  verifyPackageIntegrity,
+} from "./content-hash.mjs"
+import {
   assertLayout,
   collectObjectKeys,
   findConsentEvidenceFiles,
@@ -119,7 +124,12 @@ export const validatePackageDir = (packageDir, { expectValid, requireFiction }) 
 
   try {
     for (const [rel, schemaId] of Object.entries(catalog.package_file_schemas)) {
-      const data = readJson(join(packageDir, rel))
+      const path = join(packageDir, rel)
+      // integrity.json is a companion artifact; optional on fixtures, required on shipped.
+      if (rel === INTEGRITY_FILE && !existsSync(path)) {
+        continue
+      }
+      const data = readJson(path)
       validateData(ajv, schemaId, data, `${label}/${rel}`)
     }
 
@@ -246,6 +256,22 @@ export const validatePackageDir = (packageDir, { expectValid, requireFiction }) 
     for (const membership of registry.memberships) {
       requireRef(squads, membership.squad_id, `${label}/membership:${membership.id}`)
       requireRef(players, membership.player_id, `${label}/membership:${membership.id}`)
+    }
+
+    if (requireFiction || packageIsUnderShipped(packageDir)) {
+      const integrity = loadIntegrityManifest(packageDir)
+      if (!integrity) {
+        throw new Error(
+          `${label}: shipped packages require ${INTEGRITY_FILE} (AC-9.5)`,
+        )
+      }
+      validateData(ajv, INTEGRITY_FILE, integrity, `${label}/${INTEGRITY_FILE}`)
+      const check = verifyPackageIntegrity(packageDir, integrity)
+      if (!check.ok) {
+        throw new Error(
+          `${label}: integrity check failed: ${check.errors.join("; ")}`,
+        )
+      }
     }
 
     if (!expectValid) {

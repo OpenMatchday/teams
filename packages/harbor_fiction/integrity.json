@@ -1,0 +1,25 @@
+{
+  "schema_version": "0.1.0",
+  "package_id": "harbor_fiction",
+  "version": "0.1.0",
+  "algorithm": "sha256",
+  "content_hash": "4fa88d985a5ee5afc24fc9b42d1675530702283645684c2af279e75c29b50d00",
+  "files": [
+    {
+      "path": "docs/README.md",
+      "sha256": "f074a0181a7ab62b14498de7a4ba44494d837a9bbf9bc0cfdea91642281be98b"
+    },
+    {
+      "path": "manifest.json",
+      "sha256": "4188332b491800cd7aa14e00a1bf10d1d6214b49f6b64ed566cda86dd98276f3"
+    },
+    {
+      "path": "photos/alex_rivera.png",
+      "sha256": "c414cd0e204de974f73753c7e28d7638e7b3691bb8b1a2bab6b25bb7fed7ce77"
+    },
+    {
+      "path": "registry.json",
+      "sha256": "e90bdb246e69df07bedab15a489da3e388f48ebc2e19973e4fd8b31c4cf7911a"
+    }
+  ]
+}

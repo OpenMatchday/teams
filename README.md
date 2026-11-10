@@ -15,11 +15,16 @@ JSON Schema 2020-12 under `schemas/v0/` (SemVer `0.1.0`). See [docs/taxonomy.md]
 - Takedown docs live in the sibling `docs` repo (`privacy/takedown.md`) and do not promise Git-history erasure
 - Shipped packages are clearly fictional (`fiction: true`)
 
+## Offline cache
+
+Shipped packages publish `integrity.json` (SemVer + SHA-256 content hash). See [docs/cache.md](docs/cache.md) (AC-9.4, AC-9.5).
+
 ## Commands
 
 ```bash
 npm ci
 npm run check
+npm run integrity
 npm run validate
 npm test
 npm run typecheck
