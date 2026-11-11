@@ -8,7 +8,8 @@
     "check": "node scripts/check-schemas.mjs",
     "validate": "node scripts/validate-packages.mjs",
     "integrity": "node scripts/write-integrity.mjs",
-    "test": "node --test test/schema.test.mjs test/packages.test.mjs test/privacy.test.mjs test/integrity.test.mjs",
+    "catalog": "node scripts/export-website-catalog.mjs",
+    "test": "node --test test/schema.test.mjs test/packages.test.mjs test/privacy.test.mjs test/integrity.test.mjs test/website-catalog.test.mjs",
     "typecheck": "tsc --noEmit -p tsconfig.json"
   },
   "engines": {

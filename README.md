@@ -26,9 +26,12 @@ npm ci
 npm run check
 npm run integrity
 npm run validate
+npm run catalog
 npm test
 npm run typecheck
 ```
+
+`npm run catalog` writes `dist/website-catalog.v0.json` (searchable fiction-only registry index for the website browser).
 
 ## License
 
