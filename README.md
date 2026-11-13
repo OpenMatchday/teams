@@ -19,6 +19,10 @@ JSON Schema 2020-12 under `schemas/v0/` (SemVer `0.1.0`). See [docs/taxonomy.md]
 
 Shipped packages publish `integrity.json` (SemVer + SHA-256 content hash). See [docs/cache.md](docs/cache.md) (AC-9.4, AC-9.5).
 
+## Community PRs (AC-10.6)
+
+The community GitHub App may write only allowlisted registry paths under `packages/`. See [docs/contribution-paths.md](docs/contribution-paths.md).
+
 ## Commands
 
 ```bash
